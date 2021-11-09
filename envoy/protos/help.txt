@@ -1,0 +1,1 @@
+protoc -I$(GOOGLEAPIS_DIR) -I. --include_imports --include_source_info --descriptor_set_out=envoy\protos\greet_definition.pb .\src\SampleGrpcSvc.Svc\Protos\greet.proto

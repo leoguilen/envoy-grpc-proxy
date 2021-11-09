@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  envoy-proxy:
+    ports:
+      - 51051:51051
+    volumes:
+      - ./envoy/protos/greet_definition.pb:/data/greet_definition.pb
+      - ./envoy/envoy-proxy.yaml:/etc/envoy/envoy.yaml
+  grpc-svc:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "50051:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

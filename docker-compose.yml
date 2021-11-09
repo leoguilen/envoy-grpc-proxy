@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  envoy-proxy:
+    container_name: envoy-proxy
+    hostname: envoy-proxy
+    image: envoyproxy/envoy-alpine:v1.20-latest
+    depends_on:
+      - grpc-svc
+  grpc-svc:
+    container_name: grpc-svc
+    hostname: grpc-svc
+    image: ${DOCKER_REGISTRY-}grpc-svc
+    build:
+      context: .
+      dockerfile: src/SampleGrpcSvc.Svc/Dockerfile

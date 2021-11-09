@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "SampleGrpcSvc.Svc": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5264;https://localhost:7264",
+      "dotnetRunMessages": true
+    }
+  }
+}
